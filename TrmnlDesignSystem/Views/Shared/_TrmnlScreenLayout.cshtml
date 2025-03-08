@@ -1,0 +1,28 @@
+﻿@using Microsoft.Extensions.Options
+@using TrmnlDesignSystem
+@inject IOptions<TrmnlScreenSetup> _options;
+
+@{
+  var trmnlScreenSetup = _options.Value;
+}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="@trmnlScreenSetup.PluginsCssUrl">
+    <script src="@trmnlScreenSetup.PluginsJavaScriptUrl"></script>
+
+    <!-- Begin Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- End Inter font -->
+  </head>
+  <body class="environment trmnl">
+    <div class="screen">
+      <div class="view view--full">
+        @RenderBody()
+      </div>
+    </div>
+  </body>
+</html>
